@@ -3,6 +3,8 @@ from tkinter import *
 from tkinter import ttk
 import tkinter as tk
 import pymongo
+from tkinter import messagebox
+import subprocess
 
 
 
@@ -123,15 +125,23 @@ def consultar():
     else:
         lbl_resultado.config(text="Nenhum resultado encontrado")    
 
+def voltar():
+    tela.destroy()
+    subprocess.run(["python","principal.py"])   
+
 #Importação de icones
 foto_salvar = PhotoImage(file=r"icon\salvar.png")
 foto_excluir = PhotoImage(file=r"icon\excluir.png")
 foto_alterar = PhotoImage(file=r"icon\alterar.png")
 foto_consultar = PhotoImage(file=r"icon\consultar.png")
 foto_sair = PhotoImage(file=r"icon\sair.png")
+foto_voltar= PhotoImage(file=r"icon\voltar.png")
 
 
 btn_salvar = Button (tela, text="Salvar", image = foto_salvar, width=60,height=60,  compound =TOP,command=salvar).place(x=280,y=680)
+btn_voltar = Button (tela, text="Voltar",image=foto_voltar, width=60,height=60, compound =TOP,command=voltar).place(x=20,y=680)
+
+
 btn_consultar = Button(tela, text="Consultar",image=foto_consultar,width=60,height=60,compound =TOP,command=consultar).place(x=156,y=680)
 btn_excluir = Button (tela, text="Excluir",image=foto_excluir,width=60,height=60, compound =TOP,command=apagar).place(x=200,y=70)
 btn_atualizar = Button (tela, text="Atualizar",image=foto_alterar, width=60,height=60, compound =TOP,command=atualizar).place(x=280,y=70)

@@ -27,7 +27,7 @@ def validar_acesso(usuario, senha):
         
 def abrir_app():
     tela.destroy()
-    subprocess.run(["python","sistemaCelular.py"])   
+    subprocess.run(["python","principal.py"])   
             
 def click_botao():
     usuario = txt_usuario.get()
